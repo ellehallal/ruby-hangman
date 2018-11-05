@@ -13,27 +13,51 @@ def hangman
 
   guess = gets.chomp
 
-  solution.each_with_index do |letter, index|
-    while solution != correct_letters && wrong_guesses != 0
-      if guess == letter
-        correct_letters[index] = letter
+  while solution != correct_letters && wrong_guesses != 0
+    if solution.include?(guess)
+      solution.each_with_index do |letter, index|
+        if guess == letter
+          correct_letters[index] = letter
 
-        puts "#{letter} is correct! This is what your mystery word looks like so far:"
-        puts "#{correct_letters.join(" ")}"
-        puts "Please guess another letter:"
+          puts "#{letter} is correct! This is what your mystery word looks like so far:"
+          puts "#{correct_letters.join(" ")}"
 
-        guess = gets.chomp
-      else
-        wrong_guesses -=1
-        wrong_letters << guess
-        puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
-        guess = gets.chomp
+          if solution != correct_letters
+            puts "Please guess another letter:"
+            guess = gets.chomp
+          end
+        end
       end
 
-      #while loop
-      #if wrong guesses == 0, game over - game over method
+    else
+      wrong_guesses -=1
+      wrong_letters << guess
+      puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
+      guess = gets.chomp
     end
   end
+
+  # solution.each_with_index do |letter, index|
+  #   while solution != correct_letters && wrong_guesses != 0
+  #     if guess == letter
+  #       correct_letters[index] = letter
+  #
+  #       puts "#{letter} is correct! This is what your mystery word looks like so far:"
+  #       puts "#{correct_letters.join(" ")}"
+  #       puts "Please guess another letter:"
+  #
+  #       guess = gets.chomp
+  #     else
+  #       wrong_guesses -=1
+  #       wrong_letters << guess
+  #       puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
+  #       guess = gets.chomp
+  #     end
+  #
+  #     #while loop
+  #     #if wrong guesses == 0, game over - game over method
+  #   end
+  # end
 
   # if word is correct then This
   # else if not exit game over

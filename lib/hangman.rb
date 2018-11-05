@@ -24,7 +24,7 @@ def hangman
       puts "That is correct! This is what your mystery word looks like so far: \n#{correct_letters.join(" ")}" if solution != correct_letters
 
       if solution != correct_letters
-        puts "Here are your incorrect guesses so far: #{wrong_letters.join(" ")}"
+        puts "Incorrect letters: #{wrong_letters.join(" ")}"
         puts "Please guess another letter:"
         guess = gets.chomp
       end
@@ -33,7 +33,8 @@ def hangman
       wrong_guesses -=1
       wrong_letters << guess
       puts "That's incorrect. You have #{wrong_guesses} guesses left."
-      puts "Here are your incorrect guesses so far: #{wrong_letters.join(" ")}"
+      puts "Incorrect letters: #{wrong_letters.join(" ")}"
+      puts "Mystery word: #{correct_letters.join(" ")}"
       puts "Please guess again:"
       guess = gets.chomp
     end

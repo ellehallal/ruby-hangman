@@ -18,21 +18,24 @@ def hangman
       solution.each_with_index do |letter, index|
         if guess == letter
           correct_letters[index] = letter
-
-          puts "#{letter} is correct! This is what your mystery word looks like so far:"
-          puts "#{correct_letters.join(" ")}"
-
-          if solution != correct_letters
-            puts "Please guess another letter:"
-            guess = gets.chomp
-          end
         end
+      end
+
+      puts "That is correct! This is what your mystery word looks like so far:"
+      puts "#{correct_letters.join(" ")}"
+
+      if solution != correct_letters
+        puts "Here are your incorrect guesses so far: #{wrong_letters.join(" ")}"
+        puts "Please guess another letter:"
+        guess = gets.chomp
       end
 
     else
       wrong_guesses -=1
       wrong_letters << guess
-      puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
+      puts "That's incorrect. You have #{wrong_guesses} guesses left."
+      puts "Here are your incorrect guesses so far: #{wrong_letters.join(" ")}"
+      puts "Please guess again:"
       guess = gets.chomp
     end
   end
@@ -56,9 +59,9 @@ hangman
 
 
 # User should be greeted by a message - done
-# User has a fixed number of guesses
+# User has a fixed number of guesses - ?? incorrect guesses or guesses in total?
 # Shows which letters have been guessed correctly
-# Shows if a user has won or lost
+# Shows if a user has won or lost - done
 
 
 #core method with different methods

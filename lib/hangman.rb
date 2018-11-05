@@ -13,7 +13,7 @@ def hangman
 
   guess = gets.chomp
 
-  while solution != correct_letters && wrong_guesses != 0
+  while solution != correct_letters && wrong_guesses != 1
     if solution.include?(guess)
       solution.each_with_index do |letter, index|
         if guess == letter
@@ -37,32 +37,12 @@ def hangman
     end
   end
 
-  # solution.each_with_index do |letter, index|
-  #   while solution != correct_letters && wrong_guesses != 0
-  #     if guess == letter
-  #       correct_letters[index] = letter
-  #
-  #       puts "#{letter} is correct! This is what your mystery word looks like so far:"
-  #       puts "#{correct_letters.join(" ")}"
-  #       puts "Please guess another letter:"
-  #
-  #       guess = gets.chomp
-  #     else
-  #       wrong_guesses -=1
-  #       wrong_letters << guess
-  #       puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
-  #       guess = gets.chomp
-  #     end
-  #
-  #     #while loop
-  #     #if wrong guesses == 0, game over - game over method
-  #   end
-  # end
-
-  # if word is correct then This
-  # else if not exit game over
-
-
+  if solution == correct_letters
+    puts "Congratulations, you've guessed the correct word: #{solution.join("")}"
+  else
+    puts "You ran out of guesses. You lose"
+    exit(0)
+  end
 
 end
 

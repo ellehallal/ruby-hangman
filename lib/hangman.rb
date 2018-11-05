@@ -1,11 +1,12 @@
 def hangman
+  puts new_word
 
 
 end
 
 def new_word
-  words = %[apple bottle kleenex november Millennium]
-  words[rand(0..words.length)]
+  words = ["apple", "banana", "elephant", "coffee", "dolphin", "window"]
+  words.sample
 end
 
 
@@ -16,3 +17,4 @@ end
 
 
 #core method with different methods
+hangman

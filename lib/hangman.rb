@@ -21,8 +21,7 @@ def hangman
         end
       end
 
-      puts "That is correct! This is what your mystery word looks like so far:"
-      puts "#{correct_letters.join(" ")}"
+      puts "That is correct! This is what your mystery word looks like so far: \n#{correct_letters.join(" ")}" if solution != correct_letters
 
       if solution != correct_letters
         puts "Here are your incorrect guesses so far: #{wrong_letters.join(" ")}"
@@ -41,7 +40,7 @@ def hangman
   end
 
   if solution == correct_letters
-    puts "Congratulations, you've guessed the correct word: #{solution.join("")}"
+    puts "Congratulations, you've guessed the correct word: \n#{solution.join("")}"
   else
     puts "You ran out of guesses. You lose"
     exit(0)
@@ -50,9 +49,8 @@ def hangman
 end
 
 def new_word
-  "apple"
-  # words = ["apple", "banana", "elephant", "coffee", "dolphin", "window"]
-  # words.sample
+  words = ["apple", "banana", "elephant", "coffee", "dolphin", "window"]
+  words.sample
 end
 
 hangman
@@ -67,7 +65,7 @@ hangman
 #core method with different methods
 
 #stretch goals
-# Show a list of the wrong letters
+# Show a list of the wrong letters - done
 # Computer picks a random word - done
 # User can choose to play again
 # draw hangman with each incorrect guess

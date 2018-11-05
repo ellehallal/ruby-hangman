@@ -42,6 +42,7 @@ def hangman
 
   if solution == correct_letters
     puts "Congratulations, you've guessed the correct word: \n#{solution.join("")}"
+    #play again?
   else
     puts "You ran out of guesses. You lose"
     exit(0)
@@ -59,7 +60,7 @@ hangman
 
 # User should be greeted by a message - done
 # User has a fixed number of guesses - ?? incorrect guesses or guesses in total?
-# Shows which letters have been guessed correctly
+# Shows which letters have been guessed correctly - done
 # Shows if a user has won or lost - done
 
 
@@ -70,3 +71,4 @@ hangman
 # Computer picks a random word - done
 # User can choose to play again
 # draw hangman with each incorrect guess
+# incorporate more words, possibly import a file with words?

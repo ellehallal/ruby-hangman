@@ -4,33 +4,39 @@ def hangman
   correct_letters = ["_"] * solution.length
   wrong_letters = []
 
-  puts """
-  Hello, welcome to Hangman!
-  The mystery word contains #{solution.length} letters.
-  You can have up to #{wrong_guesses} incorrect guesses before your man is hanged!
-  Let's begin:
+  puts "Hello, welcome to Hangman!"
+  puts"The mystery word contains #{solution.length} letters."
+  puts"You can have up to #{wrong_guesses} incorrect guesses before your man is hanged!"
+  puts"Let's begin:"
+  puts "#{correct_letters.join(" ")}"
+  puts "Guess a letter:"
 
-  #{correct_letters.join(" ")}
-  Guess a letter:
-  """
   guess = gets.chomp
 
   solution.each_with_index do |letter, index|
-    if guess == letter
-      correct_letters[index] = letter
-      puts """
-      #{letter} is correct!
-      This is what your mystery word looks like so far:
-      #{correct_letters.join(" ")}
-      Please guess another letter:"""
-    # else
-    #   wrong_guesses -=1
-    #   wrong_letters << guess
-    #   puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
+    while solution != correct_letters && wrong_guesses != 0
+      if guess == letter
+        correct_letters[index] = letter
+
+        puts "#{letter} is correct! This is what your mystery word looks like so far:"
+        puts "#{correct_letters.join(" ")}"
+        puts "Please guess another letter:"
+
+        guess = gets.chomp
+      else
+        wrong_guesses -=1
+        wrong_letters << guess
+        puts "That's incorrect. You have #{wrong_guesses} left. Please guess again:"
+        guess = gets.chomp
+      end
+
+      #while loop
+      #if wrong guesses == 0, game over - game over method
     end
-    #while loop
-    #if wrong guesses == 0, game over - game over method
   end
+
+  # if word is correct then This
+  # else if not exit game over
 
 
 

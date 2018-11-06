@@ -11,7 +11,7 @@ def hangman
   puts "#{correct_letters.join(" ")}"
   puts "Guess a letter:"
 
-  guess = gets.chomp
+  guess = gets.chomp.downcase!
 
   while solution != correct_letters && wrong_guesses != 1
     if solution.include?(guess)
